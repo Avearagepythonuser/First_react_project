@@ -36,7 +36,7 @@ function App() {
       {selected == "counter" && <Counter/>}
       {selected == "dice" && <Dices/>}
       {(selected == "programs" || !selected) && <Programs/>}
-      {selected == "tudo" && <MyTodos/>}
+      {selected == "todo" && <MyTodos/>}
     </>
   )
 }

@@ -72,3 +72,10 @@ export let programs = [
     indoor: true,
   },
 ];
+
+
+export let todosData = [
+  {id: 1, description: "Bevásárlás", done: false},
+  {id: 2, description: "Könyvtár", done: true},
+  {id: 3, description: "Tankolás", done: false}
+]
