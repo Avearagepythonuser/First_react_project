@@ -1,7 +1,7 @@
 import './App.css'
 import { Counter } from './components/Counter';
 import Dices from './components/Dices';
-import { Programs } from './components/programs';
+import { Programs } from './components/Programs';
 import { ButtonGroup, Button } from '@heroui/react';
 import { useState } from "react"
 import { MyTodos } from './components/MyTodos';
@@ -9,7 +9,7 @@ import { MyTodos } from './components/MyTodos';
 
 function App() {
 
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState("programs")
 
   //const nap = "kedd";
   //const num = 11;
@@ -20,17 +20,25 @@ function App() {
       <p>A szám {num % 2 == 0 ? "páros" : "páratlan"}</p>*/}
       <div className='flex flex-col items-center gap-10 p-10'>
         <ButtonGroup variant="primary">
-          <Button onClick={()=>setSelected("counter")}>Counter</Button>
-          <Button onClick={() => setSelected("dice")}>
+          <Button onClick={()=>setSelected("counter")} 
+            className={selected == 'counter' ? "bg-indigo-200 text-indigo-700" : "text-indigo-200 bg-indigo-700"}
+          >Counter</Button>
+          <Button onClick={() => setSelected("dice")}
+              className={selected == 'dice' ? "bg-indigo-200 text-indigo-700" : "text-indigo-200 bg-indigo-700"}
+            >
             <ButtonGroup.Separator />
             Dice Roller
           </Button>
-          <Button onClick={() => setSelected("programs")}>
+          <Button onClick={() => setSelected("programs")}
+              className={selected == 'programs' ? "bg-indigo-200 text-indigo-700" : "text-indigo-200 bg-indigo-700"}
+            >
             <ButtonGroup.Separator />
             Programs
           </Button>
         </ButtonGroup>
-        <Button onClick={() => setSelected("todo")}>Tudo</Button>
+        <Button onClick={() => setSelected("todo")}
+            className={selected == 'todo' ? "bg-indigo-200 text-indigo-700" : "text-indigo-200 bg-indigo-700"}
+          >Tudo</Button>
       </div>
       
       {selected == "counter" && <Counter/>}
