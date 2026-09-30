@@ -11,3 +11,7 @@ export const getCategories = (programs) => {
 export const getPrograms = (categ) => {
     return categ == "összes" ? programs : programs.filter(({category}) => categ == category)
 }
+
+export const randomIndex19 = (num) => {
+    return (generateRandNr(1,10) * num) % 10 
+}

@@ -4,9 +4,16 @@ import { FaTrashAlt } from "react-icons/fa";
 import { Button } from "@heroui/react";
 import { FaCheck } from "react-icons/fa";
 import { NewTodo } from "./NewTodo.jsx";
+import { useEffect } from "react";
 
 export function MyTodos() {
     const [data, setData] = useState(todosData);
+    const [remaining, setRemaining] = useState(0);
+
+    useEffect(() => {
+        const count = data.filter(({done}) => !done).length
+        setRemaining(count)
+    }, [data])
 
     const handleDelete = (id) => {
         setData(prev=> prev.filter(obj =>obj.id!=id))
@@ -44,6 +51,9 @@ export function MyTodos() {
                     </li>
                 )}
             </ul>
+            <div>
+                { remaining != 0 ? "Elvégzetlen feladatok: " + remaining : "Nincs elvégzetlen feladat"} 
+            </div>
         </div>
     )
 }

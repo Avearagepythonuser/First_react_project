@@ -2,6 +2,7 @@ import { FaDiceOne, FaDiceTwo, FaDiceThree, FaDiceFour, FaDiceFive, FaDiceSix } 
 import { Button } from '@heroui/react';
 import { useState } from "react";
 import { generateRandNr } from "../utils.js"
+import { RandomQuote } from "./RandomQuote.jsx";
 
 export default function Dices() {
     const [num, setNum] = useState(1);
@@ -16,12 +17,13 @@ export default function Dices() {
     }
 
     return (
-        <div className="flex items-center flex-col bg-amber-50 p-3 max-w-3xl m-auto">
+        <div className="flex items-center flex-col bg-indigo-100 p-3 max-w-3xl m-auto gap-4">
             <h2>Dice roller</h2>
             <div>
                 {diceComponents[num]}
             </div>
             <Button  onClick={() => setNum(generateRandNr(1,6))}>Roll dice</Button>
+            <RandomQuote num={num}/>
         </div>
     )
 }
